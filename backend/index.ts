@@ -3,9 +3,13 @@ import { connectDB } from "./src/config/databse";
 
 const PORT = process.env.PORT || 3000;
 
-connectDB().then(() => {
-    app.listen(PORT,()=> {
-        console.log(`Server is running at port ${PORT}`);
-        
-    })
-});
+connectDB()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is running at port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Failed to start server ", error);
+    process.exit(1);
+  });

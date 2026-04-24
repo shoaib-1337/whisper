@@ -4,7 +4,7 @@ export interface IUser extends Document {
   clerkId: string;
   name: string;
   email: string;
-  avatar?: string;
+  avatar: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -38,4 +38,4 @@ const userSchema = new Schema<IUser>(
   },
 );
 
-export const User = mongoose.model("User", userSchema)
+export const User = mongoose.model("User", userSchema);

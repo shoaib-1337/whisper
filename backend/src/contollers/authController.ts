@@ -14,7 +14,7 @@ export async function getMe(req: AuthReq, res: Response, next: NextFunction) {
     res.status(200).json(user);
   } catch (error) {
     res.status(500);
-    next();
+    next(error);
   }
 }
 

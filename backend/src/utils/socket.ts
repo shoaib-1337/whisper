@@ -93,5 +93,13 @@ export const initializeSocket = (httpServer: HttpServer) => {
         }
       },
     );
+
+    socket.on("typing", async (data) => {});
+
+    socket.on("disconnect", () => {
+      onlineUsers.delete(userId);
+
+      socket.broadcast.emit("user-offline", { userId });
+    });
   });
 };
